@@ -1,0 +1,85 @@
+body {
+    background-color: #526D82;
+}
+
+nav { 
+    background-color: #27374D;
+    height: 50px;
+    margin: 0;
+}
+
+.nav-menu {
+    list-style: none;
+    text-align: center;
+    padding: 12px;
+}
+
+.nav-menu li {
+    display: inline-block;
+    margin-left: 80px;
+}
+
+.menu {
+    color: white;
+    text-decoration: none;
+    font-size: large;
+}
+
+aside {
+    background-color: #9DB2BF;
+}
+
+.mypage {
+    height: 150px;
+    width:  150px;
+}
+.mypage img {
+    height: 70%;
+    width: 70%;
+    border-radius: 50%;
+}
+.mypage button {
+    width: 70%
+}
+
+.post-main {
+    height: 550px;
+    width: 400px;
+    background-color: #9DB2BF;
+    border-radius: 30px;
+    margin: 20px;
+    text-align: center;
+}
+
+.poster {
+    height: 65%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 30px 30px 0px 0px;
+}
+
+.star {
+    font-size: 30px;
+    color: yellow;
+}
+
+.float-btn {
+    background-color: #27374D;
+    height: 60px;
+    width: 60px;
+    box-sizing: border-box;
+    border-radius: 50%;
+    position:fixed;
+    bottom: 30px;
+    right:30px;
+    padding-left: 16px;
+    padding-top: 16px;
+}
+
+footer {
+    text-align: center;
+}
+footer span {
+    color: #DDE6ED;
+    margin: 20px;
+}

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang = "ko">
+    <head>
+        <meta charset="utf-8">
+        <title>문화생활 기록 웹</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <header>
+            <h1>문화생활 기록용 웹</h1>
+            <div class="search_box">
+                <form method="get">
+                    <input type="search" name="title" placeholder="검색어 입력">
+                    <button type="'button">검색</button>
+                </form>
+            </div>
+        </header>
+        <nav>
+            <ul class="nav-menu">
+                <li><a class="menu" href="#">전체 보기</a></li>
+                <li><a class="menu" href="#">업적 달력</a></li>
+                <li><a class="menu" href="#">별점별 보기</a></li>
+            </ul>
+        </nav>
+        <main>
+            <aside>
+                <div class="mypage">
+                    <image src="./img/profile.jpg" alt="프로필"></image>
+                    <br>
+                    <button type="button">설정</button>
+                </div>
+                <div>
+                    <ul>
+                        <li>공연 개수: <span>1개</span></li>
+                        <li>영화 개수: <span>1개</span></li>
+                        <li>책 개수: <span>1개</span></li>
+                    </ul>
+                </div>
+                <div>
+                    해시태그 통계
+                </div>
+            </aside>
+            <section>
+                <form method="get">
+                    <select name="culture">
+                        <option value="1">전체</option>
+                        <option value="2">공연</option>
+                        <option value="3">영화</option>
+                        <option value="4">책</option>
+                    </select>
+                </form>
+                <!-- 게시글 -->
+                <article class="post-main">
+                    <image class="poster" src="./img/movie.jpg" alt="표지/포스터">
+                    <br>
+                    <div>
+                        <h2>엘리멘탈</h2>
+                        <hr>
+                        <span>영화</span> | 
+                        <span>작가/감독</span>
+                        <hr>
+                        <label class="star">★★★★★</label>
+                    </div>
+                </article>
+                <article class="post-main">
+                    <image class="poster" src="./img/concert.jpg" alt="표지/포스터">
+                    <br>
+                    <div>
+                        <h2>square</h2>
+                        <hr>
+                        <span>공연</span> | 
+                        <span>백예린</span>
+                        <hr>
+                        <label class="star">★★★★★</label>
+                    </div>
+                </article>
+                <article class="post-main">
+                    <image class="poster" src="./img/book.jpg" alt="표지/포스터">
+                    <br>
+                    <div>
+                        <h2>칵테일, 러브, 좀비</h2>
+                        <hr>
+                        <span>책</span> | 
+                        <span>조예은</span>
+                        <hr>
+                        <label class="star">★★★★★</label>
+                    </div>
+                </article>
+            </section>
+        </main>
+        <!-- 플로팅버튼 -->
+        <div class="float-btn">
+            <a href="#">
+                <svg xmlns="http://www.w3.org/2000/svg" width="65%" height="65%" fill="#DDE6ED" class="bi bi-pencil-fill" viewBox="0 0 16 16">
+                    <path d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708l-3-3zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207l6.5-6.5zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.499.499 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11l.178-.178z"/>
+                </svg>
+            </a>
+        </div>
+        <footer>
+            <span>이름</span>
+            <span>|</span>
+            <span>이메일</span>
+        </footer>
+    </body>
+</html>
