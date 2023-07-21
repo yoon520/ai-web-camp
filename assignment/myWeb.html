@@ -7,21 +7,24 @@
     </head>
     <body>
         <header>
-            <h1>문화생활 기록용 웹</h1>
-            <div class="search_box">
-                <form method="get">
-                    <input type="search" name="title" placeholder="검색어 입력">
-                    <button type="'button">검색</button>
-                </form>
-            </div>
+            <nav>
+                <ul class="nav-menu">
+                    <li><label>문화생활 기록용 웹</label></li>
+                    <li><a class="menu" href="#">전체 보기</a></li>
+                    <li><a class="menu" href="#">업적 달력</a></li>
+                    <li><a class="menu" href="#">별점별 보기</a></li>
+                    <li class="serch_box">
+                        <div class="serch">
+                            <form method="get">
+                                <input type="search" name="title" placeholder="검색어 입력">
+                                <button type="'button">검색</button>
+                            </form>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
         </header>
-        <nav>
-            <ul class="nav-menu">
-                <li><a class="menu" href="#">전체 보기</a></li>
-                <li><a class="menu" href="#">업적 달력</a></li>
-                <li><a class="menu" href="#">별점별 보기</a></li>
-            </ul>
-        </nav>
+        
         <main>
             <aside>
                 <div class="mypage">
@@ -33,6 +36,8 @@
                     <ul>
                         <li>공연 개수: <span>1개</span></li>
                         <li>영화 개수: <span>1개</span></li>
+                        <li>TV 프로그램 개수: <span>1개</span></li>
+                        <li>웹툰 개수: <span>1개</span></li>
                         <li>책 개수: <span>1개</span></li>
                     </ul>
                 </div>
@@ -46,7 +51,9 @@
                         <option value="1">전체</option>
                         <option value="2">공연</option>
                         <option value="3">영화</option>
-                        <option value="4">책</option>
+                        <option value="4">TV</option>
+                        <option value="5">웹툰</option>
+                        <option value="6">책</option>
                     </select>
                 </form>
                 <!-- 게시글 -->
