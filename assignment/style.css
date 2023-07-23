@@ -1,50 +1,167 @@
 body {
     background-color: #526D82;
+    margin: 0px;
+    /* 외부 폰트 지정 */
+    font-family: 'NanumSquare';
 }
 
-nav { 
-    background-color: #27374D;
-    height: 50px;
-    margin: 0;
-}
-
+/* 내비게이션바 */
 .nav-menu {
+    height: 7vh;
+    background-color: #27374D;
+    /* 목록의 마커 없앰 */
     list-style: none;
-    text-align: center;
-    padding: 12px;
+    padding: 2vh;
+    margin: 0px;
 }
 
 .nav-menu li {
+    /* block요소를 inline-block으로 변경해 가로로 정렬 */
     display: inline-block;
-    margin-left: 80px;
+}
+
+.web-icon {
+    margin: 1vh 1vw;
 }
 
 .menu {
+    margin: 1vh 2vw;
+}
+.menu:hover {
+    background-color: #4A55A2;
+}
+.menu-name {
     color: white;
+    /* a 태그 컨텐츠의 밑줄 없앰 */
     text-decoration: none;
-    font-size: large;
+    font-size: 20px;
+    font-weight: bold;
 }
 
+.search-box {
+    /* 오른쪽으로 위치시킴 */
+    float: right;
+    margin: 1vh 1vw;
+}
+.search {
+    height: 30px;
+    width: 300px;
+    border-radius: 30px;
+    border: 2px solid #526D82;
+    background-color: white;
+}
+.search input {
+    float: left;
+    border: 0px;
+    border-radius: 30px 0px 0px 30px;
+    height: 30px;
+    width: 260px;
+    padding-left: 15px;
+    outline: none;
+    /* 부모 배경색으로 지정 */
+    background-color: transparent;
+}
+.search button {
+    float: right;
+    border-radius: 0px 30px 30px 0px;
+    border: 0px;
+    height: 30px;
+    width: 40px;
+    padding: 6px;
+    background-color: transparent;
+}
+
+main {height: 84vh;}
 aside {
+    display: inline-block;
     background-color: #9DB2BF;
+    height: 100%;
+    width: 20vw;
+    /* 컨텐츠가 요소를 넘어갈 경우 넘어간 뒷 내용 숨김 */
+    overflow: hidden;
 }
 
 .mypage {
-    height: 150px;
-    width:  150px;
+    margin: 1.5vh 4vw;
+    height: 12vw;
+    width:  12vw;
 }
 .mypage img {
+    margin: 10% 15% 2% 15%;
     height: 70%;
     width: 70%;
     border-radius: 50%;
 }
 .mypage button {
-    width: 70%
+    margin: 0% 15%;
+    width: 70%;
+    background-color: #DDE6ED;
+    border: 0px;
+    border-radius: 10px;
+}
+
+.count {
+    margin: 3vh 1.5vw;
+    padding: 1vh;
+    border-radius: 10px;
+    border: 1px solid #526D82;
+    height: 20vh;
+}
+.count-list {
+    list-style: none;
+    padding: 0 2vw;
+}
+.count-list li {
+    margin: 0.5vh 0;
+}
+
+.hashtag {
+    margin: 3vh 1.5vw;
+    padding: 2vh;
+    border-radius: 10px;
+    border: 1px solid #526D82;
+    height: 20vh;
+    text-align: center;
+}
+
+section {
+    display: inline-block;
+    height: 100%;
+    width: 76vw;
+    position: relative;
+}
+
+.select-culture {
+    /* 부모(section) 기준 오른쪽 위에 위치 시킴 */
+    height: 4%;
+    padding-bottom: 1%;
+    position: absolute;
+    top: 3px;
+    right: 0;
+}
+
+/* 게시글 */
+.post {
+    height: 90%;
+    list-style: none;
+    /* flex 아이템이 flex 컨테이너를 넘어가게 되면 줄바꿈 */
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0px;
+    padding: 0 2vw;
+    /* 컨텐츠가 요소를 넘어갈 경우(overflow)만 스크롤바 생성 */
+    overflow: auto;
+    position: absolute;
+    top: 4%;
+}
+/* 스크롤바 숨김 */
+.post::-webkit-scrollbar {
+    display: none;
 }
 
 .post-main {
-    height: 550px;
-    width: 400px;
+    height: 385px;
+    width: 235px;
     background-color: #9DB2BF;
     border-radius: 30px;
     margin: 20px;
@@ -54,29 +171,45 @@ aside {
 .poster {
     height: 65%;
     width: 100%;
+    /* 이미지 비율은 고정된 상태로 크기를 요소에 맞춤 */
     object-fit: cover;
     border-radius: 30px 30px 0px 0px;
 }
 
+.post-title {
+    /* inline 요소를 inline-block으로 바꿔 위아래 패딩값 넣음 */
+    display: inline-block;
+    padding-top: 8px;
+    padding-bottom: 5px;
+    font-size: 20px;
+    font-weight: bold;
+}
 .star {
-    font-size: 30px;
+    display: inline-block;
+    padding-top: 5px;
+    padding-bottom: 8px;
+    font-size: 22px;
     color: yellow;
 }
 
 .float-btn {
-    background-color: #27374D;
+    background-color: #C5DFF8;
     height: 60px;
     width: 60px;
+    /* 테두리 포함한 크기 */
     box-sizing: border-box;
     border-radius: 50%;
-    position:fixed;
+    /* 화면 기준 하단 오른쪽에 고정 */
+    position: fixed;
     bottom: 30px;
-    right:30px;
+    right: 30px;
     padding-left: 16px;
     padding-top: 16px;
 }
 
 footer {
+    background-color: #27374D;
+    padding: 1.2vh;
     text-align: center;
 }
 footer span {

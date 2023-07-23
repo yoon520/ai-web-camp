@@ -4,27 +4,37 @@
         <meta charset="utf-8">
         <title>문화생활 기록 웹</title>
         <link rel="stylesheet" href="style.css">
+        <link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-square.css" rel="stylesheet">
     </head>
     <body>
         <header>
             <nav>
                 <ul class="nav-menu">
-                    <li><label>문화생활 기록용 웹</label></li>
-                    <li><a class="menu" href="#">전체 보기</a></li>
-                    <li><a class="menu" href="#">업적 달력</a></li>
-                    <li><a class="menu" href="#">별점별 보기</a></li>
-                    <li class="serch_box">
-                        <div class="serch">
+                    <li class="web-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="white" class="bi bi-journal-bookmark-fill" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M6 1h6v7a.5.5 0 0 1-.757.429L9 7.083 6.757 8.43A.5.5 0 0 1 6 8V1z"/>
+                            <path d="M3 0h10a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-1h1v1a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v1H1V2a2 2 0 0 1 2-2z"/>
+                            <path d="M1 5v-.5a.5.5 0 0 1 1 0V5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1zm0 3v-.5a.5.5 0 0 1 1 0V8h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1zm0 3v-.5a.5.5 0 0 1 1 0v.5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1z"/>
+                        </svg>
+                    </li>
+                    <li class="menu"><a class="menu-name" href="#">전체 보기</a></li>
+                    <li class="menu"><a class="menu-name" href="#">별점별 보기</a></li>
+                    <li class="menu"><a class="menu-name" href="#">업적 달력</a></li>
+                    <li class="search-box">
+                        <div class="search">
                             <form method="get">
                                 <input type="search" name="title" placeholder="검색어 입력">
-                                <button type="'button">검색</button>
+                                <button type="'button">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#526D82" class="bi bi-search" viewBox="0 0 16 16">
+                                        <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                                    </svg>
+                                </button>
                             </form>
                         </div>
                     </li>
                 </ul>
             </nav>
         </header>
-        
         <main>
             <aside>
                 <div class="mypage">
@@ -32,8 +42,8 @@
                     <br>
                     <button type="button">설정</button>
                 </div>
-                <div>
-                    <ul>
+                <div class="count">
+                    <ul class="count-list">
                         <li>공연 개수: <span>1개</span></li>
                         <li>영화 개수: <span>1개</span></li>
                         <li>TV 프로그램 개수: <span>1개</span></li>
@@ -41,64 +51,80 @@
                         <li>책 개수: <span>1개</span></li>
                     </ul>
                 </div>
-                <div>
+                <div class="hashtag">
                     해시태그 통계
                 </div>
             </aside>
             <section>
-                <form method="get">
-                    <select name="culture">
-                        <option value="1">전체</option>
-                        <option value="2">공연</option>
-                        <option value="3">영화</option>
-                        <option value="4">TV</option>
-                        <option value="5">웹툰</option>
-                        <option value="6">책</option>
-                    </select>
-                </form>
+                <div class="select-culture">
+                    <form method="get">
+                        <select name="culture">
+                            <option value="1">전체</option>
+                            <option value="2">공연</option>
+                            <option value="3">영화</option>
+                            <option value="4">TV</option>
+                            <option value="5">웹툰</option>
+                            <option value="6">책</option>
+                        </select>
+                    </form>
+                </div>
                 <!-- 게시글 -->
-                <article class="post-main">
-                    <image class="poster" src="./img/movie.jpg" alt="표지/포스터">
-                    <br>
-                    <div>
-                        <h2>엘리멘탈</h2>
-                        <hr>
-                        <span>영화</span> | 
-                        <span>작가/감독</span>
-                        <hr>
-                        <label class="star">★★★★★</label>
-                    </div>
-                </article>
-                <article class="post-main">
-                    <image class="poster" src="./img/concert.jpg" alt="표지/포스터">
-                    <br>
-                    <div>
-                        <h2>square</h2>
-                        <hr>
-                        <span>공연</span> | 
-                        <span>백예린</span>
-                        <hr>
-                        <label class="star">★★★★★</label>
-                    </div>
-                </article>
-                <article class="post-main">
-                    <image class="poster" src="./img/book.jpg" alt="표지/포스터">
-                    <br>
-                    <div>
-                        <h2>칵테일, 러브, 좀비</h2>
-                        <hr>
-                        <span>책</span> | 
-                        <span>조예은</span>
-                        <hr>
-                        <label class="star">★★★★★</label>
-                    </div>
-                </article>
+                <ul class="post">
+                    <li>
+                        <article class="post-main">
+                            <image class="poster" src="./img/movie.jpg" alt="표지/포스터">
+                            <br>
+                            <span class="post-title">엘리멘탈</span>
+                            <hr>
+                            <span>영화 |</span> 
+                            <span>작가/감독</span>
+                            <hr>
+                            <span class="star">★★★★★</span>
+                        </article>
+                    </li>
+                    <li>
+                        <article class="post-main">
+                            <image class="poster" src="./img/concert.jpg" alt="표지/포스터">
+                            <br>
+                            <span class="post-title">square</span>
+                            <hr>
+                            <span>공연</span> | 
+                            <span>백예린</span>
+                            <hr>
+                            <span class="star">★★★★★</span>
+                        </article>
+                    </li>
+                    <li>
+                        <article class="post-main">
+                            <image class="poster" src="./img/book.jpg" alt="표지/포스터">
+                            <br>
+                            <span class="post-title">칵테일, 러브, 좀비</span>
+                            <hr>
+                            <span>책</span> | 
+                            <span>조예은</span>
+                            <hr>
+                            <span class="star">★★★★★</span>
+                        </article>
+                    </li>
+                    <li>
+                        <article class="post-main">
+                            <image class="poster" src="./img/webtoon.jpg" alt="표지/포스터">
+                            <br>
+                            <span class="post-title">화산귀환</span>
+                            <hr>
+                            <span>웹툰</span> | 
+                            <span>비가/리코</span>
+                            <hr>
+                            <span class="star">★★★★★</span>
+                        </article>
+                    </li>
+                </ul>
             </section>
         </main>
         <!-- 플로팅버튼 -->
         <div class="float-btn">
             <a href="#">
-                <svg xmlns="http://www.w3.org/2000/svg" width="65%" height="65%" fill="#DDE6ED" class="bi bi-pencil-fill" viewBox="0 0 16 16">
+                <svg xmlns="http://www.w3.org/2000/svg" width="65%" height="65%" fill="#4A55A2" class="bi bi-pencil-fill" viewBox="0 0 16 16">
                     <path d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708l-3-3zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207l6.5-6.5zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.499.499 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11l.178-.178z"/>
                 </svg>
             </a>
