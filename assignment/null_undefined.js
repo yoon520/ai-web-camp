@@ -2,10 +2,10 @@ let a;
 let b = null;
 let obj = {name: null};
 
-console.log(a);          // undefined
-console.log(b);          // null
-console.log(obj.age);    // undefined
-console.log(obj.name);   // null
+console.log(a);         // undefined
+console.log(b);         // null
+console.log(obj.age);   // undefined
+console.log(obj.name);  // null
 
 /* 
 a는 변수로 선언되었지만 아직 초기화되지 않아 undefined이다.
