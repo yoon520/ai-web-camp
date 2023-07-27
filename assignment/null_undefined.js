@@ -1,17 +1,33 @@
+/*
+- null은 리터럴 값으로 변수를 선언해 빈 값을 할당한 상태이다. 
+아직 '값'이 정해지지 않았다는 것을 뜻한다.
+- undefined는 변수를 선언했지만 값을 할당하지 않았거나 존재하지 않는 값에 접근할 때 반환된다.
+아직 '타입(자료형)'이 정해지지 않았다는 것을 뜻한다.
+*/
+
 let a;
 let b = null;
 let obj = {name: null};
+arr = [1,2,3]
+function add(num1, num2) { num1 + num2 }
+function f(x, y) {console.log(x, y)}
 
 console.log(a);         // undefined
 console.log(b);         // null
 console.log(obj.age);   // undefined
 console.log(obj.name);  // null
+console.log(arr[3])     // undefined
+console.log(add(1, 2))  // undefined
+f(1);                   // 1 undefined
 
 /* 
 a는 변수로 선언되었지만 아직 초기화되지 않아 undefined이다.
 b는 값을 null로 지정해 의도적으로 값이 없다는 것을 나타낸 것이기 때문에 null이다.
-obj.age는 obj 객체의 프로퍼티로 지정되어 있지 않아 존재하지 않는 값에 접근했기 때문에 undefined이다.
+age는 obj 객체의 프로퍼티로 존재하지 않는 값이기 때문에 undefined이다.
 obj.name의 프로퍼티 값은 null로 빈 값을 지정한 상태이므로 null이다.
+배열의 범위에 존재하지 않는 값으로 undefined이다.
+add함수에 리턴값이 존재하지 않아 undefined이다.
+f함수에 매개변수 b의 값이 존재하지 않아 undefined이다.
 */
 
 console.log(typeof a);          // undefined
