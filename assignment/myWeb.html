@@ -22,7 +22,7 @@
                     <li class="menu"><a class="menu-name" href="#">업적 달력</a></li>
                     <li class="search-box">
                         <div class="search">
-                            <form method="get">
+                            <form>
                                 <input type="search" name="searchWord" id="searchWord" placeholder="검색어 입력">
                                 <button type="button">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#526D82" class="bi bi-search" viewBox="0 0 16 16">
@@ -58,7 +58,7 @@
             </aside>
             <section>
                 <div class="select-genre">
-                    <form method="get">
+                    <form>
                         <select id="filter" name="genre">
                             <option value="전체">전체</option>
                             <option value="공연">공연</option>
@@ -137,7 +137,9 @@
         <script>
             const search = document.getElementById("searchWord");
             const filterGenre = document.getElementById("filter");
-            let searchItems = document.getElementsByClassName(".post-main");
+            let searchItems = document.getElementsByClassName("post-main");
+
+            console.log(searchItems)
 
             // 검색(필터) 기능
             function filter() {
@@ -146,7 +148,7 @@
 
                 for (var i = 0; i < searchItems.length; i++){
                     // 제목이나 작가/감독에 검색어를 포함하고 있을 때
-                    if (searchItems.item(i).children[2].innerText.includes(searchWord) || element.children[5].innerText.includes(searchWord)) {
+                    if (searchItems.item(i).children[2].innerText.includes(searchWord) || searchItems.item(i).children[5].innerText.includes(searchWord)) {
                         // 드롭다운 value와 같은 경우만 출력
                         if (genre === "전체") {
                             searchItems.item(i).style.display = "block";
