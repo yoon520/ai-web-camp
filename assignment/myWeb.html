@@ -23,8 +23,8 @@
                     <li class="search-box">
                         <div class="search">
                             <form method="get">
-                                <input type="search" name="title" placeholder="검색어 입력">
-                                <button type="'button">
+                                <input type="search" name="searchWord" id="searchWord" placeholder="검색어 입력">
+                                <button type="button">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#526D82" class="bi bi-search" viewBox="0 0 16 16">
                                         <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
                                     </svg>
@@ -43,12 +43,13 @@
                     <button type="button">설정</button>
                 </div>
                 <div class="count">
-                    <ul class="count-list">
-                        <li>공연 개수: <span>1개</span></li>
-                        <li>영화 개수: <span>1개</span></li>
-                        <li>TV 프로그램 개수: <span>1개</span></li>
-                        <li>웹툰 개수: <span>1개</span></li>
-                        <li>책 개수: <span>1개</span></li>
+                    <ul id="count-list">
+                        <li>전체: <span>1개</span></li>
+                        <li>공연: <span>1개</span></li>
+                        <li>영화: <span>1개</span></li>
+                        <li>TV 프로그램: <span>1개</span></li>
+                        <li>웹툰: <span>1개</span></li>
+                        <li>책: <span>1개</span></li>
                     </ul>
                 </div>
                 <div class="hashtag">
@@ -56,15 +57,15 @@
                 </div>
             </aside>
             <section>
-                <div class="select-culture">
+                <div class="select-genre">
                     <form method="get">
-                        <select name="culture">
-                            <option value="1">전체</option>
-                            <option value="2">공연</option>
-                            <option value="3">영화</option>
-                            <option value="4">TV</option>
-                            <option value="5">웹툰</option>
-                            <option value="6">책</option>
+                        <select id="filter" name="genre">
+                            <option value="전체">전체</option>
+                            <option value="공연">공연</option>
+                            <option value="영화">영화</option>
+                            <option value="TV">TV</option>
+                            <option value="웹툰">웹툰</option>
+                            <option value="책">책</option>
                         </select>
                     </form>
                 </div>
@@ -122,17 +123,45 @@
             </section>
         </main>
         <!-- 플로팅버튼 -->
-        <div class="float-btn">
-            <a href="#">
-                <svg xmlns="http://www.w3.org/2000/svg" width="65%" height="65%" fill="#4A55A2" class="bi bi-pencil-fill" viewBox="0 0 16 16">
-                    <path d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708l-3-3zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207l6.5-6.5zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.499.499 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11l.178-.178z"/>
-                </svg>
-            </a>
-        </div>
+        <a href="#popup" id="btn-write">
+            <svg xmlns="http://www.w3.org/2000/svg" width="65%" height="65%" fill="#4A55A2" class="bi bi-pencil-fill" viewBox="0 0 16 16">
+                <path d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708l-3-3zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207l6.5-6.5zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.499.499 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11l.178-.178z"/>
+            </svg>
+        </a>
         <footer>
             <span>이름</span>
             <span>|</span>
             <span>이메일</span>
         </footer>
+
+        <script>
+            const search = document.getElementById("searchWord");
+            const filterGenre = document.getElementById("filter");
+            let searchItems = document.getElementsByClassName(".post-main");
+
+            // 검색(필터) 기능
+            function filter() {
+                var searchWord = document.querySelector("#searchWord").value;
+                var genre = document.getElementById("filter").value;
+
+                for (var i = 0; i < searchItems.length; i++){
+                    // 제목이나 작가/감독에 검색어를 포함하고 있을 때
+                    if (searchItems.item(i).children[2].innerText.includes(searchWord) || element.children[5].innerText.includes(searchWord)) {
+                        // 드롭다운 value와 같은 경우만 출력
+                        if (genre === "전체") {
+                            searchItems.item(i).style.display = "block";
+                        } else if (genre === searchItems.item(i).children[4].innerText) {
+                            searchItems.item(i).style.display = "block";
+                        } else {
+                            searchItems.item(i).style.display = "none";
+                        }
+                    } else {
+                        searchItems.item(i).style.display = "none";
+                    }
+                }
+            }
+            search.addEventListener("keyup", filter);
+            filterGenre.addEventListener("change", filter);
+        </script>
     </body>
 </html>

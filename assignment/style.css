@@ -4,6 +4,7 @@ body {
     /* 외부 폰트 지정 */
     font-family: 'NanumSquare';
 }
+body::-webkit-scrollbar { display: none; }
 
 /* 내비게이션바 */
 .nav-menu {
@@ -22,10 +23,15 @@ body {
 
 .web-icon {
     margin: 1vh 1vw;
+    vertical-align: middle;
 }
 
 .menu {
-    margin: 1vh 2vw;
+    height: 5vh;
+    padding-left: 1vw;
+    padding-right: 1vw;
+    line-height: 5vh;
+    vertical-align: middle;
 }
 .menu:hover {
     background-color: #4A55A2;
@@ -34,7 +40,7 @@ body {
     color: white;
     /* a 태그 컨텐츠의 밑줄 없앰 */
     text-decoration: none;
-    font-size: 20px;
+    font-size: 100%;
     font-weight: bold;
 }
 
@@ -42,6 +48,7 @@ body {
     /* 오른쪽으로 위치시킴 */
     float: right;
     margin: 1vh 1vw;
+    vertical-align: middle;
 }
 .search {
     height: 30px;
@@ -87,7 +94,7 @@ aside {
     width:  12vw;
 }
 .mypage img {
-    margin: 10% 15% 2% 15%;
+    margin: 5% 15% 2% 15%;
     height: 70%;
     width: 70%;
     border-radius: 50%;
@@ -101,18 +108,18 @@ aside {
 }
 
 .count {
-    margin: 3vh 1.5vw;
+    margin: 2vh 1.5vw;
     padding: 1vh;
     border-radius: 10px;
     border: 1px solid #526D82;
-    height: 20vh;
 }
-.count-list {
+#count-list {
+    text-align: center;
     list-style: none;
-    padding: 0 2vw;
+    padding: 0 1vw;
 }
 .count-list li {
-    margin: 0.5vh 0;
+    margin: 1vh 0;
 }
 
 .hashtag {
@@ -127,32 +134,29 @@ aside {
 section {
     display: inline-block;
     height: 100%;
-    width: 76vw;
+    width: 79vw;
     position: relative;
 }
 
-.select-culture {
+.select-genre {
     /* 부모(section) 기준 오른쪽 위에 위치 시킴 */
-    height: 4%;
-    padding-bottom: 1%;
     position: absolute;
-    top: 3px;
+    top: 10px;
     right: 0;
 }
 
 /* 게시글 */
 .post {
-    height: 90%;
+    height: 95%;
     list-style: none;
     /* flex 아이템이 flex 컨테이너를 넘어가게 되면 줄바꿈 */
     display: flex;
     flex-wrap: wrap;
     margin: 0px;
-    padding: 0 2vw;
     /* 컨텐츠가 요소를 넘어갈 경우(overflow)만 스크롤바 생성 */
     overflow: auto;
     position: absolute;
-    top: 4%;
+    top: 5%;
 }
 /* 스크롤바 숨김 */
 .post::-webkit-scrollbar {
@@ -192,7 +196,7 @@ section {
     color: yellow;
 }
 
-.float-btn {
+#btn-write {
     background-color: #C5DFF8;
     height: 60px;
     width: 60px;
