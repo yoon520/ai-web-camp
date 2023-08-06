@@ -1,9 +1,9 @@
-# 문자열 비교 샘플 코드
+# 문자열 비교 과정 코드
 def compare_str(str1, str2):
     flag = True
     if len(str1) == len(str2):
         for i, j in zip(str1, str2):
-            if i.encode('utf-8') != j.encode('utf-8'):
+            if i != j:
                 flag = False
                 break
     else:

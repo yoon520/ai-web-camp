@@ -109,7 +109,6 @@ aside {
 
 .count {
     margin: 2vh 1.5vw;
-    padding: 1vh;
     border-radius: 10px;
     border: 1px solid #526D82;
 }
@@ -124,11 +123,16 @@ aside {
 
 .hashtag {
     margin: 3vh 1.5vw;
-    padding: 2vh;
     border-radius: 10px;
     border: 1px solid #526D82;
-    height: 20vh;
-    text-align: center;
+    font-size: 3.7vh;
+}
+.hashtag ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0;
+    padding: 2vh;
 }
 
 section {

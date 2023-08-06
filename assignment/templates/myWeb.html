@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <title>문화생활 기록 웹</title>
-        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="../static/css/style.css">
         <link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-square.css" rel="stylesheet">
     </head>
     <body>
@@ -38,22 +38,29 @@
         <main>
             <aside>
                 <div class="mypage">
-                    <image src="./img/profile.jpg" alt="프로필"></image>
+                    <image src="../static/img/profile.jpg" alt="프로필"></image>
                     <br>
                     <button type="button">설정</button>
                 </div>
                 <div class="count">
                     <ul id="count-list">
-                        <li>전체: <span>1개</span></li>
-                        <li>공연: <span>1개</span></li>
-                        <li>영화: <span>1개</span></li>
-                        <li>TV 프로그램: <span>1개</span></li>
-                        <li>웹툰: <span>1개</span></li>
-                        <li>책: <span>1개</span></li>
+                        <li>전체: <span>0개</span></li>
+                        <li>공연: <span>0개</span></li>
+                        <li>영화: <span>0개</span></li>
+                        <li>TV 프로그램: <span>0개</span></li>
+                        <li>웹툰: <span>0개</span></li>
+                        <li>웹소설: <span>0개</span></li>
+                        <li>책: <span>0개</span></li>
                     </ul>
                 </div>
                 <div class="hashtag">
-                    해시태그 통계
+                    <ul>
+                        {% for tag in hashtag%}
+                            <li>
+                                {{tag}}
+                            </li>
+                        {% endfor %}
+                    </ul>
                 </div>
             </aside>
             <section>
@@ -65,60 +72,27 @@
                             <option value="영화">영화</option>
                             <option value="TV">TV</option>
                             <option value="웹툰">웹툰</option>
+                            <option value="웹소설">웹소설</option>
                             <option value="책">책</option>
                         </select>
                     </form>
                 </div>
                 <!-- 게시글 -->
                 <ul class="post">
-                    <li>
-                        <article class="post-main">
-                            <image class="poster" src="./img/movie.jpg" alt="표지/포스터">
-                            <br>
-                            <span class="post-title">엘리멘탈</span>
-                            <hr>
-                            <span>영화</span> |  
-                            <span>피터 손</span>
-                            <hr>
-                            <span class="star">★★★★★</span>
-                        </article>
-                    </li>
-                    <li>
-                        <article class="post-main">
-                            <image class="poster" src="./img/concert.jpg" alt="표지/포스터">
-                            <br>
-                            <span class="post-title">square</span>
-                            <hr>
-                            <span>공연</span> | 
-                            <span>백예린</span>
-                            <hr>
-                            <span class="star">★★★★★</span>
-                        </article>
-                    </li>
-                    <li>
-                        <article class="post-main">
-                            <image class="poster" src="./img/book.jpg" alt="표지/포스터">
-                            <br>
-                            <span class="post-title">칵테일, 러브, 좀비</span>
-                            <hr>
-                            <span>책</span> | 
-                            <span>조예은</span>
-                            <hr>
-                            <span class="star">★★★★★</span>
-                        </article>
-                    </li>
-                    <li>
-                        <article class="post-main">
-                            <image class="poster" src="./img/webtoon.jpg" alt="표지/포스터">
-                            <br>
-                            <span class="post-title">화산귀환</span>
-                            <hr>
-                            <span>웹툰</span> | 
-                            <span>비가/리코</span>
-                            <hr>
-                            <span class="star">★★★★★</span>
-                        </article>
-                    </li>
+                    {% for post in postAll %}
+                        <li>
+                            <article class="post-main">
+                                <image class="poster" src="../static/img/{{ post['poster'] }}" alt="표지/포스터">
+                                <br>
+                                <span class="post-title">{{ post['title'] }}</span>
+                                <hr>
+                                <span>{{ post['genre'] }}</span> |  
+                                <span>{{ post['creator'] }}</span>
+                                <hr>
+                                <span class="star">{{ "★"*post['star']+"☆"*(5-post['star'])  }}</span>
+                            </article>
+                        </li>
+                    {% endfor %}
                 </ul>
             </section>
         </main>
@@ -137,9 +111,37 @@
         <script>
             const search = document.getElementById("searchWord");
             const filterGenre = document.getElementById("filter");
+            let cntList = document.getElementById("count-list");
+            let cntGenre = cntList.children;
             let searchItems = document.getElementsByClassName("post-main");
+            let cnt = [searchItems.length, 0, 0, 0, 0, 0, 0]
 
-            console.log(searchItems)
+            for (var i = 0; i < searchItems.length; i++) {
+                switch(searchItems.item(i).children[4].innerText) {
+                    case "공연":
+                        cnt[1] += 1;
+                        break;
+                    case "영화":
+                        cnt[2] += 1;
+                        break;
+                    case "TV":
+                        cnt[3] += 1;
+                        break;
+                    case "웹툰":
+                        cnt[4] += 1;
+                        break;
+                    case "웹소설":
+                        cnt[5] += 1;
+                        break;
+                    case "책":
+                        cnt[6] += 1;
+                        break;
+                }
+            }
+
+            for (var i = 0; i < 7; i++) {
+                cntGenre.item(i).children[0].innerText = cnt[i] + "개";
+            }
 
             // 검색(필터) 기능
             function filter() {
